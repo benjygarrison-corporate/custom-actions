@@ -1,5 +1,8 @@
 name: 'Deploy to AWS S3'
 description: 'Deploy a static website to AWS S3.'
+outputs:
+  url:
+    description: 'The URL of the deployed website.'
 runs:
   using: 'node16'
   main: 'main.js'
