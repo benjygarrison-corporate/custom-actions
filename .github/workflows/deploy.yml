@@ -15,7 +15,7 @@ jobs:
         with:
           caching: 'false'
       - name: Output contents
-        run: echo "Cache used"    
+        run: 'echo "Cache hit: ${{ steps.cache-deps.outputs.cache-hit }}"'    
       - name: Lint code
         run: npm run lint
   test:
@@ -24,7 +24,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Cache dependencies
-        uses: ./github/actions/cached-deps
+        uses: ./.github/actions/cached-deps
       - name: Test code
         id: run-tests
         run: npm run test
