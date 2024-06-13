@@ -1,8 +1,10 @@
 const core = require('@actions/core');
-// const github = require('@actions/github');
-// const exec = require('@actions/exec');
+const github = require('@actions/github');
+const exec = require('@actions/exec');
 
 function run() {
-    core.notice('Hello World!');
+    exec.exec('echo "Exec"');
+    core.notice('Core Notice!');
+    github.notice('GitHub Notice!');
 }
 run();
