@@ -69,5 +69,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Install action dependencies
+        run: npm install
+        working-directory: ./.github/actions/deploy-s3-javascript  
       - name: Run Custom Action
         uses: ./.github/actions/deploy-s3-javascript
