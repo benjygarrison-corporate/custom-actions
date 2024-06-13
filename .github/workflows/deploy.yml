@@ -64,9 +64,13 @@ jobs:
         run: ls
       - name: Deploy site
         id: deploy  
-        run: |
-          echo "Deploying..."
-          echo "url=https://example.com" >> $GITHUB_OUTPUT
+        uses: ./.github/actions/deploy-s3-docker # won't currently work; no AWS credentials
+        # env:
+          # AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          # AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        # with:
+          # bucket: 'my-bucket'
+          # dist-folder: 'dist'
       - name: Output information
         run: |
           echo "Live URL: ${{ steps.deploy.outputs.url}}"  
