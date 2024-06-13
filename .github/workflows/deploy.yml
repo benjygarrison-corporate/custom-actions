@@ -64,7 +64,9 @@ jobs:
         run: ls
       - name: Deploy site
         id: deploy  
-        run: echo "Deploying..."
+        run: |
+          echo "Deploying..."
+          echo "url=https://example.com" >> $GITHUB_OUTPUT
       - name: Output information
         run: |
           echo "Live URL: ${{ steps.deploy.outputs.url}}"  
